@@ -70,25 +70,6 @@ const {
     <slot />
     <Footer />
     <WhatsAppButton />
-    <script>
-      // Temporary script to make elements visible since GSAP animations are not yet implemented
-      // and the HTML contains classes that hide elements (opacity-0, translate-y-full, etc.)
-      document.addEventListener("DOMContentLoaded", () => {
-        const hiddenElements = document.querySelectorAll(
-          ".opacity-0, .translate-y-full, .-translate-y-10, .-translate-x-5, .gsap-hidden"
-        );
-        hiddenElements.forEach((el) => {
-          el.classList.remove(
-            "opacity-0",
-            "translate-y-full",
-            "-translate-y-10",
-            "-translate-x-5",
-            "gsap-hidden"
-          );
-          el.classList.add("opacity-100", "translate-y-0", "translate-x-0");
-        });
-      });
-    </script>
   </body>
 </html>
 
