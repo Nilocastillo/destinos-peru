@@ -12,6 +12,7 @@ const toursCollection = defineCollection({
       category: z.array(z.string()),
       description: z.string(),
       alt: z.string(),
+      order: z.number().optional().default(0),
       meta_title: z.string(),
       meta_description: z.string(),
     }),

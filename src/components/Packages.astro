@@ -4,9 +4,9 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 
 const tours = await getCollection("tours");
-const packages = tours.filter((tour) =>
-  tour.data.category.includes("Paquetes")
-);
+const packages = tours
+  .filter((tour) => tour.data.category.includes("Paquetes"))
+  .sort((a, b) => b.data.order - a.data.order);
 ---
 
 <section id="paquetes" class="py-24 bg-white">
