@@ -1,0 +1,96 @@
+---
+import { Image } from "astro:assets";
+import aboutCusco from "../assets/img-home-services/cusco.webp";
+import aboutMachuPicchu from "../assets/img-home-services/machupicchu.webp";
+---
+
+<section id="empresa" class="py-24 bg-white overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row gap-16 items-center">
+      <!-- Columna Izquierda: Texto y Storytelling -->
+      <div class="lg:w-1/2 gsap-fade-up">
+        <div
+          class="inline-block px-3 py-1 bg-red-50 text-brand-red font-bold text-xs uppercase tracking-widest rounded-full mb-6"
+        >
+          ¿Quiénes Somos?
+        </div>
+        <h2
+          class="text-4xl md:text-5xl font-serif text-slate-900 mb-8 leading-tight"
+        >
+          Experiencia real en campo, <br />
+          <span
+            class="text-transparent bg-clip-text bg-linear-to-r from-brand-red to-orange-500"
+            >llevada a la logística.</span
+          >
+        </h2>
+
+        <div class="prose prose-lg text-gray-600 mb-10 text-base">
+          <p>
+            En <strong>Destino Perú Viajes</strong> no solo somos operadores, somos
+            expertos formados en el terreno. Nuestra historia nace de más de <strong
+              >10 años de experiencia</strong
+            > real: desde guías y transfers hasta la gerencia operativa.
+          </p>
+          <p>
+            Conocemos cada curva del camino y cada posible imprevisto. Por eso,
+            diseñamos una empresa blindada en procesos para <strong
+              >proteger y respaldar a las agencias aliadas</strong
+            > que confían su reputación en nosotros.
+          </p>
+        </div>
+
+        <!-- Bloques Misión / Visión -->
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="vision-card">
+            <h3 class="font-bold text-slate-900 mb-2">Misión</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Operar servicios auténticos con procesos claros que generen
+              tranquilidad total a nuestras agencias.
+            </p>
+          </div>
+          <div class="vision-card">
+            <h3 class="font-bold text-slate-900 mb-2">Visión</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Ser el operador B2B líder en Perú, sinónimo de confianza,
+              excelencia y seguridad operativa.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Composición de Imágenes -->
+      <div
+        class="lg:w-1/2 relative h-full min-h-[300px] md:min-h-[500px] w-full gsap-fade-up delay-100 mt-12 lg:mt-0"
+      >
+        <!-- Imagen Principal -->
+        <div
+          class="absolute right-0 top-0 w-full md:w-4/5 h-full rounded-3xl overflow-hidden shadow-2xl z-10"
+        >
+          <Image
+            src={aboutCusco}
+            alt="Equipo Destino Perú"
+            class="w-full h-full object-cover"
+            widths={[400, 800, 1200]}
+            sizes="(min-width: 1024px) 40vw, (min-width: 768px) 80vw, 100vw"
+            decoding="async"
+            loading="lazy"
+          />
+        </div>
+        <!-- Imagen Secundaria (Flotante) -->
+        <div
+          class="absolute left-0 bottom-12 w-1/2 aspect-square rounded-2xl overflow-hidden shadow-2xl z-20 border-4 border-white hidden md:block"
+        >
+          <Image
+            src={aboutMachuPicchu}
+            alt="Paisaje Perú"
+            class="w-full h-full object-cover"
+            widths={[320, 500, 800]}
+            sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+            decoding="async"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

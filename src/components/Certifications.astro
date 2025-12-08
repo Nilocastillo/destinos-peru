@@ -1,0 +1,175 @@
+---
+import { Image } from "astro:assets";
+import LogoAgencia from "@/assets/certificaciones/agencia-registrada.webp";
+import LogoCalidad from "@/assets/certificaciones/compromiso-calidad.webp";
+import LogoGercetur from "@/assets/certificaciones/gercetur.webp";
+import LogoGetYourGuide from "@/assets/certificaciones/get-your-guide.webp";
+import LogoTripAdvisor from "@/assets/certificaciones/tripadvisor.webp";
+import LogoTurismoResponsable from "@/assets/certificaciones/turismo-responsable.webp";
+
+const certificaciones = [
+  {
+    logo: LogoAgencia,
+    name: "Agencia Registrada",
+    alt: "Logo de Agencia Registrada",
+  },
+  {
+    logo: LogoTurismoResponsable,
+    name: "Turismo Responsable",
+    alt: "Logo de Turismo Responsable",
+  },
+  {
+    logo: LogoCalidad,
+    name: "Compromiso de Calidad",
+    alt: "Logo de Compromiso de Calidad",
+  },
+  {
+    logo: LogoGercetur,
+    name: "Gercetur",
+    alt: "Logo de Gercetur",
+  },
+  {
+    logo: LogoGetYourGuide,
+    name: "GetYourGuide",
+    alt: "Logo de GetYourGuide",
+  },
+  {
+    logo: LogoTripAdvisor,
+    name: "TripAdvisor",
+    alt: "Logo de TripAdvisor",
+  },
+];
+---
+
+<section
+  class="max-w-7xl px-6 py-12 overflow-hidden w-full relative group mx-auto flex gap-x-5 flex-col"
+>
+  <div class="mb-8 mx-auto">
+    <h2
+      class="text-2xl text-balance md:text-3xl lg:text-4xl font-bold text-center text-secondary"
+    >
+      Nuestras Certificaciones
+    </h2>
+    <p class="text-gray-500 mt-4">
+      Reconocimientos que avalan nuestra calidad y compromiso.
+    </p>
+  </div>
+
+  <div class="slider-wrapper">
+    <div class="slider-container">
+      <!-- Primera copia -->
+      <div class="slider-track">
+        {
+          certificaciones.map((cert) => (
+            <div class="slider-item">
+              <Image
+                src={cert.logo}
+                alt={cert.alt}
+                width={200}
+                height={200}
+                class="w-24 h-24 md:w-32 md:h-32 lg:w-36 lg:h-36 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                widths={[100, 200, 300]}
+                sizes="(min-width: 1024px) 144px, (min-width: 768px) 128px, 96px"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+              />
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Segunda copia (duplicado exacto) -->
+      <div class="slider-track" aria-hidden="true">
+        {
+          certificaciones.map((cert) => (
+            <div class="slider-item">
+              <Image
+                src={cert.logo}
+                alt={cert.alt}
+                width={200}
+                height={200}
+                class="w-24 h-24 md:w-32 md:h-32 lg:w-36 lg:h-36 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                widths={[100, 200, 300]}
+                sizes="(min-width: 1024px) 144px, (min-width: 768px) 128px, 96px"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    /* Fade effect restored */
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+  }
+
+  .slider-container {
+    display: flex;
+    gap: 4rem;
+    width: max-content;
+    animation: scroll 35s linear infinite;
+  }
+
+  .slider-container:hover {
+    animation-play-state: paused;
+  }
+
+  .slider-track {
+    display: flex;
+    gap: 4rem;
+  }
+
+  .slider-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .slider-track {
+      gap: 1.5rem;
+    }
+
+    .slider-container {
+      animation-duration: 25s;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .slider-track {
+      gap: 3rem;
+    }
+
+    .slider-container {
+      animation-duration: 45s;
+    }
+  }
+</style>

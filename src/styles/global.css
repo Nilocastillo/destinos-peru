@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", sans-serif;
+  --font-serif: "Manrope", sans-serif;
+
+  --color-brand-red: #c13838;
+  --color-brand-green: #4caf50;
+  --color-brand-dark: #1a1a1a;
+  --color-brand-gray: #f9fafb;
+  --color-brand-light: #ffffff;
+
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  --shadow-soft: 0 10px 40px -10px rgba(0, 0, 0, 0.06);
+  --shadow-card:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+@layer utilities {
+  .glass-pill-nav {
+    @apply bg-slate-900/85 backdrop-blur-xl border border-white/10 shadow-lg rounded-full px-6 py-3 transition-all duration-300;
+  }
+  .glass-pill-nav:hover {
+    @apply bg-slate-900/95;
+  }
+
+  .btn-brand {
+    @apply bg-gradient-to-br from-brand-red to-red-800 text-white transition-all duration-300;
+  }
+  .btn-brand:hover {
+    @apply -translate-y-0.5 shadow-xl shadow-brand-red/25;
+  }
+
+  .btn-outline-light {
+    @apply bg-white/10 border border-white/30 text-white backdrop-blur-sm transition-all duration-300;
+  }
+  .btn-outline-light:hover {
+    @apply bg-white/20 border-white;
+  }
+
+  .vision-card {
+    @apply bg-white p-8 rounded-2xl shadow-soft transition-all duration-300 border border-gray-100 h-full;
+  }
+  .vision-card:hover {
+    @apply -translate-y-1 shadow-lg border-brand-green;
+  }
+
+  .feature-card {
+    @apply bg-white transition-all duration-300 relative overflow-hidden;
+  }
+  .feature-card:hover {
+    @apply -translate-y-1 shadow-soft;
+  }
+
+  .icon-circle {
+    @apply w-14 h-14 rounded-full flex items-center justify-center text-xl mb-6 transition-transform duration-300;
+  }
+  .feature-card:hover .icon-circle {
+    @apply scale-110;
+  }
+
+  .text-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+    color: transparent;
+  }
+
+  /* GSAP Utilities */
+  .gsap-hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

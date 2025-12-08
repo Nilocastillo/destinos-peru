@@ -1,0 +1,61 @@
+---
+import Icon from "../Icon.astro";
+
+interface Props {
+  difficulty: string;
+  altitude: string;
+  duration?: string;
+}
+
+const { difficulty, altitude, duration } = Astro.props;
+---
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+  <div
+    class="bg-gray-50 p-6 rounded-2xl border border-gray-100 flex items-center gap-4"
+  >
+    <div
+      class="w-12 h-12 rounded-full bg-brand-red/10 flex items-center justify-center text-brand-red"
+    >
+      <Icon name="activity" class="w-6 h-6" />
+    </div>
+    <div>
+      <p class="text-sm text-gray-500 uppercase font-bold tracking-wider">
+        Dificultad
+      </p>
+      <p class="text-lg font-bold text-gray-900">{difficulty}</p>
+    </div>
+  </div>
+
+  <div
+    class="bg-gray-50 p-6 rounded-2xl border border-gray-100 flex items-center gap-4"
+  >
+    <div
+      class="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green"
+    >
+      <Icon name="mountain" class="w-6 h-6" />
+    </div>
+    <div>
+      <p class="text-sm text-gray-500 uppercase font-bold tracking-wider">
+        Altura Máxima
+      </p>
+      <p class="text-lg font-bold text-gray-900">{altitude}</p>
+    </div>
+  </div>
+
+  {
+    duration && (
+      <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-600">
+          <Icon name="clock" class="w-6 h-6" />
+        </div>
+        <div>
+          <p class="text-sm text-gray-500 uppercase font-bold tracking-wider">
+            Duración
+          </p>
+          <p class="text-lg font-bold text-gray-900">{duration}</p>
+        </div>
+      </div>
+    )
+  }
+</div>

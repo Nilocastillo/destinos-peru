@@ -1,0 +1,57 @@
+---
+import Icon from "../Icon.astro";
+
+interface Props {
+  title: string;
+  items: string[];
+  type: "check" | "cross" | "star";
+}
+
+const { title, items, type } = Astro.props;
+
+const iconName =
+  type === "check" ? "tick-circle" : type === "cross" ? "close-circle" : "star";
+const colorClass =
+  type === "check"
+    ? "text-brand-green"
+    : type === "cross"
+      ? "text-brand-red"
+      : "text-yellow-500";
+const bgClass =
+  type === "check"
+    ? "bg-brand-green/5"
+    : type === "cross"
+      ? "bg-brand-red/5"
+      : "bg-yellow-500/5";
+---
+
+<div class={`p-8 rounded-2xl ${bgClass} h-full`}>
+  <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+    <span
+      class={`p-2 rounded-lg ${type === "check" ? "bg-brand-green/10" : type === "cross" ? "bg-brand-red/10" : "bg-yellow-500/10"} ${colorClass}`}
+    >
+      <Icon
+        name={type === "check"
+          ? "tick-square"
+          : type === "cross"
+            ? "close-square"
+            : "lamp-on"}
+        class="w-6 h-6"
+      />
+    </span>
+    {title}
+  </h3>
+  <ul class="space-y-4">
+    {
+      items.map((item) => (
+        <li class="flex items-start gap-3">
+          <Icon
+            name={iconName}
+            class={`w-5 h-5 mt-0.5 shrink-0 ${colorClass}`}
+          />
+          <span class="text-gray-700 leading-relaxed">{item}</span>
+        </li>
+      ))
+    }
+  </ul>
+</div>

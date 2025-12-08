@@ -1,0 +1,43 @@
+---
+---
+
+<div id="modal" class="fixed inset-0 z-[60] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" id="modal-backdrop"></div>
+    <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="relative bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 transform transition-all scale-100">
+            <div class="text-center">
+                <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-brand-red/10 text-brand-red mb-6">
+                    <i class="fas fa-file-invoice text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-2" id="modal-title">Cotizar Servicio</h3>
+                <p class="text-gray-500 mb-8 leading-relaxed" id="modal-message">
+                    Acceda a nuestra plataforma B2B para ver tarifas netas y disponibilidad en tiempo real.
+                </p>
+                <button type="button" class="w-full py-3 btn-brand rounded-xl font-bold text-white shadow-lg" id="modal-close-btn">
+                    Entendido
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('modal');
+    const modalBackdrop = document.getElementById('modal-backdrop');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalTitle = document.getElementById('modal-title');
+
+    // @ts-ignore
+    window.openModal = function(tourName) {
+        if (modalTitle) modalTitle.innerText = `Cotizar ${tourName}`;
+        modal?.classList.remove('hidden');
+    }
+
+    // @ts-ignore
+    window.closeModal = function() {
+        modal?.classList.add('hidden');
+    }
+
+    modalBackdrop?.addEventListener('click', window.closeModal);
+    modalCloseBtn?.addEventListener('click', window.closeModal);
+</script>

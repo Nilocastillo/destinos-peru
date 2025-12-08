@@ -1,0 +1,118 @@
+---
+import { Image } from "astro:assets";
+import operacionTradicional from "@/assets/img-home-services/operacion-tradicional.webp";
+import serviciosReceptivos from "@/assets/img-home-services/servicios-receptivos.webp";
+import transporteTuristico from "@/assets/img-home-services/transporte-turistico.webp";
+import guiadoProfesional from "@/assets/img-home-services/guiado-profesional.webp";
+import disenoMedida from "@/assets/img-home-services/diseno-medida.webp";
+import soporteOperativo from "@/assets/img-home-services/soporte-operativo.webp";
+import serviciosGrupales from "@/assets/img-home-services/servicios-grupales.webp";
+
+const services = [
+  {
+    id: 1,
+    title: "Operación Tradicional",
+    description:
+      "Coordinamos todos los circuitos clásicos: Cusco, Valle Sagrado, Machu Picchu y Montaña 7 Colores.",
+    image: operacionTradicional,
+    delay: "",
+  },
+  {
+    id: 2,
+    title: "Servicios Receptivos",
+    description:
+      "Somos tu aliado en destino. Nos encargamos de toda la logística para que tus pasajeros viajen sin contratiempos.",
+    image: serviciosReceptivos,
+    delay: "delay-75",
+  },
+  {
+    id: 3,
+    title: "Transporte Turístico",
+    description:
+      "Unidades autorizadas, cómodas y seguras. Operadas por conductores expertos que conocen las rutas.",
+    image: transporteTuristico,
+    delay: "delay-100",
+  },
+  {
+    id: 4,
+    title: "Guiado Profesional",
+    description:
+      "Staff de guías oficiales certificados en Español e Inglés, con amplia experiencia y carisma.",
+    image: guiadoProfesional,
+    delay: "delay-150",
+  },
+  {
+    id: 5,
+    title: "Diseño a Medida",
+    description:
+      "Creamos paquetes adaptados al estilo de tu marca. Cultural, aventura, familiar o premium.",
+    image: disenoMedida,
+    delay: "delay-200",
+  },
+  {
+    id: 6,
+    title: "Soporte Operativo 24/7",
+    description:
+      "Monitoreamos cada servicio en tiempo real para asegurar puntualidad y cumplimiento.",
+    image: soporteOperativo,
+    delay: "delay-300",
+  },
+  {
+    id: 7,
+    title: "Servicios Especiales para Grupos",
+    description:
+      "Atención logística especializada para grupos estudiantiles, corporativos (MICE) y familiares.",
+    image: serviciosGrupales,
+    delay: "delay-300",
+  },
+];
+---
+
+<section
+  id="servicios-b2b"
+  class="py-24 bg-brand-gray border-y border-gray-100"
+>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-16 gsap-fade-up">
+      <span
+        class="text-brand-green font-bold tracking-widest text-xs uppercase mb-2 block"
+        >Capacidad Operativa</span
+      >
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900">
+        Servicios B2B Integrales
+      </h2>
+      <p class="text-gray-500 mt-4 max-w-2xl mx-auto">
+        Soluciones logísticas diseñadas específicamente para facilitar el
+        trabajo de nuestras agencias aliadas.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        services.map((service) => (
+          <div
+            class={`bg-white rounded-2xl shadow-sm hover:shadow-md transition-all border border-gray-100 gsap-fade-up overflow-hidden group ${service.delay}`}
+          >
+            <div class="h-48 overflow-hidden">
+              <Image
+                src={service.image}
+                alt={service.title}
+                class="w-full h-full object-cover"
+                widths={[320, 640, 800]}
+                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                decoding="async"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6 md:p-8">
+              <h3 class="font-bold text-slate-900 mb-2 text-xl">
+                {service.id}. {service.title}
+              </h3>
+              <p class="text-sm text-gray-500">{service.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

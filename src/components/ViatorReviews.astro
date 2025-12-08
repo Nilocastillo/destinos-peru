@@ -1,0 +1,107 @@
+---
+import Icon from "./Icon.astro";
+
+const reviews = [
+  {
+    name: "Abel S",
+    date: "nov de 2025 • Familia",
+    title: "muy buena experiencia",
+    comment:
+      "Excelente, el guía fue muy amable paciente, además práctico y disponible dando tiempo para explicar y tomar fotografía.",
+    rating: 5,
+  },
+  {
+    name: "Pam S",
+    date: "nov de 2025 • En solitario",
+    title: "Tour Valle Sagrado Vip",
+    comment:
+      "Excelente el Tour del Full Valle Sagrado con Joel!! El tour increíble y Joel un guia super amable y que en todo momento respondía cualquier curiosidad. Recomendado!.",
+    rating: 5,
+  },
+  {
+    name: "Antony C",
+    date: "nov de 2025 • Amigos",
+    title: "Emil inti Paradise Cusco",
+    comment:
+      "Emil fue un gran apoyo en nitro tour. Una persona muy simpática quien dio una excelente guía. Explicaciones claras, perdona puntal y siempre tratando de ayudar a sus acompañantes.",
+    rating: 5,
+  },
+  {
+    name: "Ana María G",
+    date: "nov de 2025 • Parejas",
+    title: "Excelente experiencia!",
+    comment:
+      "Tuvimos una excelente experiencia con las vistas y toda la historia de cada sitio a cargo de nuestro muy buen guía Emil. Muchas gracias! Totalmente recomendado",
+    rating: 5,
+  },
+  {
+    name: "Jorge Enrique C",
+    date: "nov de 2025 • Amigos",
+    title: "Excelente guía Emil",
+    comment:
+      "Lo máximo el guía Emil. Súper recomendado. Te explica todo lo que debes saber y también te indica los lugares para obtener fotos impresionantes.",
+    rating: 5,
+  },
+  {
+    name: "Victor C",
+    date: "nov de 2025 • Familia",
+    title: "Una experiencia increíble",
+    comment:
+      "Fue un excelente tour me la pasé increíble con todos ,sobre todo con toda la información que nos brindó el guía turístico Emil.",
+    rating: 5,
+  },
+];
+---
+
+<section id="reviews" class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-16 gsap-fade-up">
+      <span
+        class="text-brand-green font-bold tracking-widest text-xs uppercase mb-2 block"
+        >Testimonios</span
+      >
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900">
+        Lo que dicen nuestros viajeros
+      </h2>
+      <p class="text-gray-500 mt-4">
+        Descubre por qué miles de viajeros confían en nosotros para su aventura
+        en Perú.
+      </p>
+    </div>
+    <!-- Reviews Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        reviews.map((review) => (
+          <div class="bg-white p-8 rounded-2xl shadow-soft border border-gray-100 hover:shadow-lg transition duration-300 gsap-card">
+            <div class="flex items-center mb-4">
+              <div class="flex text-yellow-400">
+                {[...Array(review.rating)].map(() => (
+                  <Icon
+                    name="star"
+                    class="w-5 h-5 text-yellow-400 filled-star"
+                  />
+                ))}
+              </div>
+            </div>
+            <h3 class="font-bold text-lg text-slate-900 mb-2">
+              {review.title}
+            </h3>
+            <p class="text-gray-600 mb-6 italic">"{review.comment}"</p>
+            <div class="flex items-center justify-between border-t border-gray-100 pt-4">
+              <div>
+                <p class="font-bold text-slate-900 text-sm">{review.name}</p>
+              </div>
+              <p class="text-gray-400 text-xs">{review.date}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  .filled-star path {
+    fill: currentColor;
+  }
+</style>

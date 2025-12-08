@@ -1,0 +1,22 @@
+---
+interface Props {
+  itinerary: {
+    title: string;
+    description: string;
+  }[];
+}
+
+const { itinerary } = Astro.props;
+---
+
+<div class="relative border-l-2 border-brand-green/20 ml-3 space-y-8 my-8">
+  {
+    itinerary.map((item) => (
+      <div class="relative pl-8">
+        <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-green border-4 border-white shadow-sm" />
+        <h3 class="text-lg font-bold text-gray-900">{item.title}</h3>
+        <p class="text-gray-600 leading-relaxed">{item.description}</p>
+      </div>
+    ))
+  }
+</div>

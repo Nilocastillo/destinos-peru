@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Página no encontrada | Destino Perú Viajes"
+  description="Lo sentimos, no pudimos encontrar la página que buscas. Regresa al inicio para continuar navegando."
+  robots="noindex, nofollow"
+>
+  <main class="min-h-[70vh] flex items-center justify-center bg-gray-50 px-6">
+    <div class="text-center max-w-2xl mx-auto">
+      <h1 class="text-9xl font-bold text-brand-green/10 mb-8">404</h1>
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+        ¡Ups! Página no encontrada
+      </h2>
+      <p class="text-gray-500 mb-8 text-lg">
+        Parece que la página que buscas se ha movido o ya no existe. No te
+        preocupes, puedes volver a nuestra página principal.
+      </p>
+      <a
+        href="/"
+        class="inline-flex items-center justify-center px-8 py-4 bg-brand-green text-white font-bold rounded-xl hover:bg-green-700 transition-colors duration-300 shadow-lg shadow-green-900/20"
+      >
+        Volver al Inicio
+      </a>
+    </div>
+  </main>
+</Layout>
