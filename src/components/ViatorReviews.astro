@@ -55,7 +55,7 @@ const reviews = [
 
 <section id="reviews" class="py-24 bg-gray-50">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="text-center mb-16 gsap-fade-up">
+    <div class="text-center mb-16">
       <span
         class="text-brand-green font-bold tracking-widest text-xs uppercase mb-2 block"
         >Testimonios</span
@@ -72,7 +72,7 @@ const reviews = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {
         reviews.map((review) => (
-          <div class="bg-white p-8 rounded-2xl shadow-soft border border-gray-100 hover:shadow-lg transition duration-300 gsap-card">
+          <div class="bg-white p-8 rounded-2xl shadow-soft border border-gray-100 hover:shadow-lg transition duration-300">
             <div class="flex items-center mb-4">
               <div class="flex text-yellow-400">
                 {[...Array(review.rating)].map(() => (

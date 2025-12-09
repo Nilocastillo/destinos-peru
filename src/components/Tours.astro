@@ -11,7 +11,7 @@ const fullDayTours = tours.filter((tour) =>
 
 <section id="tours" class="py-24 bg-brand-gray border-t border-gray-200">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="text-center mb-16 gsap-fade-up">
+    <div class="text-center mb-16">
       <span
         class="text-brand-green font-bold tracking-widest text-xs uppercase mb-2 block"
         >Portafolio Selecto</span
@@ -32,7 +32,7 @@ const fullDayTours = tours.filter((tour) =>
         fullDayTours.map((tour) => (
           <a
             href={`/tours/${tour.slug}`}
-            class="group bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-2xl transition duration-300 gsap-card cursor-pointer block"
+            class="group bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-2xl transition duration-300 cursor-pointer block"
           >
             <div class="h-64 overflow-hidden relative">
               <Image
