@@ -60,6 +60,68 @@ const {
     <slot />
     <Footer />
     <WhatsAppButton />
+    <script>
+      let snowInterval: ReturnType<typeof setInterval> | null = null;
+
+      function createSnowflake() {
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+        snowflake.style.left = Math.random() * window.innerWidth + "px";
+        snowflake.style.top = "-5px";
+        snowflake.style.opacity = Math.random().toString();
+        snowflake.style.transform = `scale(${Math.random() * 1.5 + 0.5})`;
+
+        document.body.appendChild(snowflake);
+
+        let posY = -5;
+        const speed = Math.random() * 2 + 1;
+        let wobble = 0;
+
+        function fall() {
+          if (!document.body.contains(snowflake)) return;
+
+          posY += speed;
+          wobble += 0.02;
+          snowflake.style.top = posY + "px";
+          snowflake.style.left =
+            parseFloat(snowflake.style.left) + Math.sin(wobble) * 2 + "px";
+
+          if (posY < window.innerHeight) {
+            requestAnimationFrame(fall);
+          } else {
+            snowflake.remove();
+          }
+        }
+
+        requestAnimationFrame(fall);
+      }
+
+      function startSnow() {
+        if (!snowInterval) {
+          snowInterval = setInterval(createSnowflake, 100);
+        }
+      }
+
+      // Start on load
+      startSnow();
+
+      // Ensure it runs after view transitions if needed (though interval persists, this is safe)
+      document.addEventListener("astro:page-load", startSnow);
+    </script>
+
+    <style is:global>
+      .snowflake {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 4px;
+        background-color: white;
+        z-index: 9999;
+        pointer-events: none;
+        border-radius: 50%;
+      }
+    </style>
   </body>
 </html>
 
